@@ -38,3 +38,5 @@ else
 fi
 
 skaffold dev --filename='infra/skaffold.yml'
+
+remove "wwww.chapterday.dev"
