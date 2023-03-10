@@ -1,3 +1,6 @@
 [submodule "_backends/captcha_service"]
 	path = _backends/captcha_service
 	url = https://github.com/stevie0105/CaptchaService.git
+[submodule "_frontends/bun_react"]
+	path = _frontends/bun_react
+	url = https://github.com/erwanriou/test_bun_react.git

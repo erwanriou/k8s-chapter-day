@@ -1,0 +1,23 @@
+apiVersion: skaffold/v2beta8
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+
+build:
+  local:
+    push: false
+  artifacts:
+    - image: captcha
+      context: _backends/captcha_service
+      docker:
+        dockerfile: Dockerfile
+    - image: bun_react
+      context: _frontends/bun_react
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .

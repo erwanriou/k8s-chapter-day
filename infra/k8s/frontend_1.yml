@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bun_react-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bun_react
+  template:
+    metadata:
+      labels:
+        app: bun_react
+    spec:
+      containers:
+        - name: bun_react
+          image: bun_react
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bun_react-srv
+spec:
+  selector:
+    app: bun_react
+  ports:
+    - name: bun_react
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

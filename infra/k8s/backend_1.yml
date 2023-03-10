@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: captcha-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: captcha
+  template:
+    metadata:
+      labels:
+        app: captcha
+    spec:
+      containers:
+        - name: captcha
+          image: captcha
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: captcha-srv
+spec:
+  selector:
+    app: captcha
+  ports:
+    - name: captcha
+      port: 8666
+      targetPort: 8666
