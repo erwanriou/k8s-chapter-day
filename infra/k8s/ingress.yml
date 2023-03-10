@@ -24,11 +24,11 @@ spec:
               service:
                 name: captcha-srv
                 port:
-                  number: 3000
+                  number: 8666
           - path: /?(.*)
             pathType: Prefix
             backend:
               service:
-                name: bun_react-srv
+                name: react-app-srv
                 port:
                   number: 3000

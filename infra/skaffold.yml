@@ -13,8 +13,8 @@ build:
       context: _backends/captcha_service
       docker:
         dockerfile: Dockerfile
-    - image: bun_react
-      context: _frontends/bun_react
+    - image: react-app
+      context: _frontends/react-app
       docker:
         dockerfile: Dockerfile
       sync:
